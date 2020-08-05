@@ -1,32 +1,32 @@
 // Create a Checkout Session with the selected plan ID
-var createCheckoutSession = function(priceId) {
-  return fetch("/create-checkout-session.php", {
-    method: "POST",
+var createCheckoutSession = function (priceId) {
+  return fetch('/create-checkout-session', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      priceId: priceId
-    })
-  }).then(function(result) {
+      priceId: priceId,
+    }),
+  }).then(function (result) {
     return result.json();
   });
 };
 
 // Handle any errors returned from Checkout
-var handleResult = function(result) {
+var handleResult = function (result) {
   if (result.error) {
-    var displayError = document.getElementById("error-message");
+    var displayError = document.getElementById('error-message');
     displayError.textContent = result.error.message;
   }
 };
 
 /* Get your Stripe publishable key to initialize Stripe.js */
-fetch("/config.php")
-  .then(function(result) {
+fetch('/setup')
+  .then(function (result) {
     return result.json();
   })
-  .then(function(json) {
+  .then(function (json) {
     var publishableKey = json.publishableKey;
     var basicPriceId = json.basicPrice;
     var proPriceId = json.proPrice;
@@ -34,13 +34,16 @@ fetch("/config.php")
     var stripe = Stripe(publishableKey);
     // Setup event handler to create a Checkout Session when button is clicked
     document
-      .getElementById("basic-plan-btn")
-      .addEventListener("click", function(evt) {
-        createCheckoutSession(basicPriceId).then(function(data) {
+      .getElementById('basic-plan-btn')
+      .addEventListener('click', function (evt) {
+        document.querySelectorAll('button').forEach((bt) => {
+          bt.disabled = true;
+        });
+        createCheckoutSession(basicPriceId).then(function (data) {
           // Call Stripe.js method to redirect to the new Checkout page
           stripe
             .redirectToCheckout({
-              sessionId: data.sessionId
+              sessionId: data.sessionId,
             })
             .then(handleResult);
         });
@@ -48,13 +51,16 @@ fetch("/config.php")
 
     // Setup event handler to create a Checkout Session when button is clicked
     document
-      .getElementById("pro-plan-btn")
-      .addEventListener("click", function(evt) {
-        createCheckoutSession(proPriceId).then(function(data) {
+      .getElementById('pro-plan-btn')
+      .addEventListener('click', function (evt) {
+        document.querySelectorAll('button').forEach((bt) => {
+          bt.disabled = true;
+        });
+        createCheckoutSession(proPriceId).then(function (data) {
           // Call Stripe.js method to redirect to the new Checkout page
           stripe
             .redirectToCheckout({
-              sessionId: data.sessionId
+              sessionId: data.sessionId,
             })
             .then(handleResult);
         });

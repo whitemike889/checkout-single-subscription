@@ -10,7 +10,7 @@
   --accent-color: #0066f0;
   --body-font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   --radius: 6px;
-  --logo-image: url("https://storage.googleapis.com/stripe-sample-images/KAVHOLM.svg");
+  --logo-image: url('https://storage.googleapis.com/stripe-sample-images/KAVHOLM.svg');
   --form-width: 600px;
 }
 
@@ -113,8 +113,8 @@ label {
 /* Inputs */
 .sr-input,
 .sr-select,
-input[type="text"],
-input[type="number"] {
+input[type='text'],
+input[type='number'] {
   border: 1px solid var(--gray-border);
   border-radius: var(--radius);
   padding: 5px 12px;
@@ -128,7 +128,7 @@ input[type="number"] {
   color: #32325d;
 }
 .sr-input:focus,
-input[type="text"]:focus,
+input[type='text']:focus,
 button:focus,
 .focused {
   box-shadow: 0 0 0 1px rgba(50, 151, 211, 0.3), 0 1px 1px 0 rgba(0, 0, 0, 0.07),
@@ -137,8 +137,8 @@ button:focus,
   z-index: 9;
 }
 .sr-input::placeholder,
-input[type="text"]::placeholder,
-input[type="number"]::placeholder {
+input[type='text']::placeholder,
+input[type='number']::placeholder {
   color: var(--gray-light);
 }
 
@@ -172,7 +172,7 @@ input[type="number"]::placeholder {
 
 .sr-checkbox-label input:checked ~ .sr-checkbox-check {
   background-color: var(--accent-color);
-  background-image: url("https://storage.googleapis.com/stripe-sample-images/icon-checkmark.svg");
+  background-image: url('https://storage.googleapis.com/stripe-sample-images/icon-checkmark.svg');
   background-repeat: no-repeat;
   background-size: 16px;
   background-position: -1px -1px;
@@ -183,7 +183,7 @@ input[type="number"]::placeholder {
   display: block;
   height: 44px;
   margin: 0;
-  background-image: url("https://storage.googleapis.com/stripe-sample-images/icon-chevron-down.svg");
+  background-image: url('https://storage.googleapis.com/stripe-sample-images/icon-chevron-down.svg');
   background-repeat: no-repeat, repeat;
   background-position: right 12px top 50%, 0 0;
   background-size: 0.65em auto, 100%;
@@ -285,7 +285,7 @@ button:active {
 }
 button:disabled {
   opacity: 0.5;
-  cursor: none;
+  cursor: not-allowed;
 }
 
 .sr-payment-form button,
@@ -317,7 +317,7 @@ a:active {
 }
 code,
 pre {
-  font-family: "SF Mono", "IBM Plex Mono", "Menlo", monospace;
+  font-family: 'SF Mono', 'IBM Plex Mono', 'Menlo', monospace;
   font-size: 12px;
 }
 
@@ -356,7 +356,7 @@ pre {
 :root {
   --accent-color: #ed5f74;
   --headline-color: var(--accent-color);
-  --logo-image: url("https://storage.googleapis.com/stripe-sample-images/logo-pasha.svg");
+  --logo-image: url('https://storage.googleapis.com/stripe-sample-images/logo-pasha.svg');
 }
 
 .pasha-image-stack {
@@ -420,7 +420,7 @@ pre {
 .spinner:before,
 .spinner:after {
   position: absolute;
-  content: "";
+  content: '';
 }
 .spinner:before {
   width: 10.4px;
@@ -508,8 +508,8 @@ pre {
   border: 1px solid var(--accent-color);
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
